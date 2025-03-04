@@ -1,3 +1,9 @@
+hw/mcu/raspberry_pi/
+lib/CMSIS_5/
+lib/FreeRTOS-Kernel/
+lib/lwip/
+pico-sdk/
+tools/uf2/
 html
 latex
 *.a
