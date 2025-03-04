@@ -1,3 +1,12 @@
+运行所有的example
+移植midi/audio到keyboard项目
+
+
+## TinyUsb是如何实现跨平台支持的
+
+## TinyUsb是如何进行测试的持续集成的
+0.17.0 Add CodeQL Workflow for Code Security Analysis
+
 ## Getting Started
 ### 编译pico报错
 运行
@@ -24,6 +33,21 @@ cmake -S . -B _build/raspberry_pi_pico -DFAMILY=rp2040 -DBOARD=raspberry_pi_pico
 
 然后make BOARD=raspberry_pi_pico才成功。
 
+
+
+### 编译stm32f401
+make BOARD=stm32f401blackpill get-deps照样出错
+
+cd /mnt/c/git/tinyusb/hw/mcu/st
+rm -rf ./*
+git clone https://github.com/STMicroelectronics/stm32f4xx_hal_driver.git
+git clone https://github.com/STMicroelectronics/stm32f4xx_hal_driver.git
+make BOARD=stm32f401blackpill all
+
+烧录(注意pyocd不支持stm32f401，改用stm32f412xe)
+pyocd flash -t stm32f412xe _build/stm32f401blackpill/cdc_msc.bin
+or
+make BOARD=stm32f401blackpill PYOCD_TARGET=stm32f412xe flash-pyocd
 
 
 

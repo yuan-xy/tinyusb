@@ -4,6 +4,7 @@ lib/FreeRTOS-Kernel/
 lib/lwip/
 pico-sdk/
 tools/uf2/
+hw/mcu/st/
 html
 latex
 *.a
