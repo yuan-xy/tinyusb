@@ -568,6 +568,53 @@
   #define TUP_RHPORT_HIGHSPEED    1
   #define TUD_ENDPOINT_ONE_DIRECTION_ONLY
 
+//--------------------------------------------------------------------+
+// ArteryTek
+//--------------------------------------------------------------------+
+#elif TU_CHECK_MCU(OPT_MCU_AT32F403A_407)
+  #define TUP_USBIP_FSDEV
+  #define TUP_USBIP_FSDEV_AT32
+  #define TUP_DCD_ENDPOINT_MAX    8
+
+#elif TU_CHECK_MCU(OPT_MCU_AT32F413)
+  #define TUP_USBIP_FSDEV
+  #define TUP_USBIP_FSDEV_AT32
+  #define TUP_DCD_ENDPOINT_MAX    8
+
+#elif TU_CHECK_MCU(OPT_MCU_AT32F415)
+  #define TUP_USBIP_DWC2
+  #define TUP_USBIP_DWC2_AT32
+  #define TUP_DCD_ENDPOINT_MAX    4
+
+#elif TU_CHECK_MCU(OPT_MCU_AT32F435_437)
+  #define TUP_USBIP_DWC2
+  #define TUP_USBIP_DWC2_AT32
+  #define TUP_DCD_ENDPOINT_MAX    8
+
+#elif TU_CHECK_MCU(OPT_MCU_AT32F423)
+  #define TUP_USBIP_DWC2
+  #define TUP_USBIP_DWC2_AT32
+  #define TUP_DCD_ENDPOINT_MAX    8
+
+#elif TU_CHECK_MCU(OPT_MCU_AT32F402_405)
+  #define TUP_USBIP_DWC2
+  #define TUP_USBIP_DWC2_AT32
+  #define TUP_DCD_ENDPOINT_MAX    8
+
+  // AT32F405xx has on-chip HS PHY
+  #if defined(AT32F405CBT7) || defined(AT32F405CBU7) ||     \
+      defined(AT32F405CCT7) || defined(AT32F405CCU7) ||     \
+      defined(AT32F405KBU7_4) || defined(AT32F405KCU7_4) || \
+      defined(AT32F405RBT7_7) || defined(AT32F405RBT7) ||   \
+      defined(AT32F405RCT7_7) || defined(AT32F405RCT7)
+    #define TUP_RHPORT_HIGHSPEED  1 // Port0: FS, Port1: HS
+  #endif
+
+#elif TU_CHECK_MCU(OPT_MCU_AT32F425)
+  #define TUP_USBIP_DWC2
+  #define TUP_USBIP_DWC2_AT32
+  #define TUP_DCD_ENDPOINT_MAX    8
+
 #endif
 
 //--------------------------------------------------------------------+
